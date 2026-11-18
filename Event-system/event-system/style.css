@@ -1,0 +1,182 @@
+.chat { display: flex; flex-direction: column; gap: 8px; max-width: 500px; }
+.bubble { padding: 8px 12px; border-radius: 12px; max-width: 75%; }
+.bubble small { display: block; font-size: 11px; opacity: 0.7; }
+.mine { align-self: flex-end; background: #d9f2d9; }
+.theirs { align-self: flex-start; background: #eee; }
+
+
+/* ---------- Page ---------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+  color: #222;
+  text-align: center;
+}
+
+h1 {
+  margin: 30px 0 10px;
+  color: #3730a3;
+}
+
+/* ---------- Card ---------- */
+.container {
+  position: relative;
+  max-width: 420px;
+  margin: 20px auto 40px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  text-align: center;
+}
+
+.form-header p { margin: 0; color: #666; font-size: 14px; }
+.form-header h2 { margin: 5px 0 20px; color: #3730a3; }
+
+/* ---------- Form ---------- */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: center;
+}
+
+.input-group {
+  position: relative;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 12px;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea.input-field { min-height: 90px; resize: vertical; font-family: inherit; }
+
+.input-field:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* floating label (needs placeholder="" on the input) */
+.floating-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #888;
+  pointer-events: none;
+  transition: all 0.2s;
+  background: #fff;
+  padding: 0 6px;
+}
+
+textarea.input-field + .floating-label { top: 22px; }
+
+.input-field:focus + .floating-label,
+.input-field:not(:placeholder-shown) + .floating-label {
+  top: 0;
+  font-size: 12px;
+  color: #6366f1;
+}
+
+/* file input and date input */
+.input-group label[for="profile_image"],
+.input-group label[for="event_date"] {
+  display: block;
+  margin-bottom: 6px;
+  color: #555;
+  font-size: 14px;
+}
+
+input[type="file"],
+input[type="datetime-local"] { max-width: 100%; }
+
+#preview {
+  margin: 10px auto 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ---------- Buttons ---------- */
+.form-btn {
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.form-btn--submit {
+  width: 100%;
+  background: #6366f1;
+  color: #fff;
+}
+
+.form-btn--submit:hover { background: #4f46e5; }
+.form-btn:active { transform: scale(0.98); }
+
+/* ---------- Links and messages ---------- */
+.form-link { color: #6366f1; text-decoration: none; font-weight: bold; }
+.form-link:hover { text-decoration: underline; }
+
+.form-bottom { margin-top: 20px; font-size: 14px; color: #555; }
+
+.errors {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  background: #fee2e2;
+  color: #b91c1c;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.errors:empty { display: none; }
+
+.message {
+  margin: 0;
+  padding: 10px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ---------- Blobs (decorative, behind the form) ---------- */
+.form-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.blob-image { position: absolute; opacity: 0.15; }
+.blob-image--1 { width: 120px; top: -30px; left: -30px; }
+.blob-image--2 { width: 90px; bottom: -20px; right: -20px; }
+.blob-image--3 { display: none; }
+
+.form-header, .form-box, .form-bottom { position: relative; z-index: 1; }
+
+/* ---------- Dashboard, events, chat ---------- */
+nav { margin: 15px 0; }
+nav a { margin: 0 10px; color: #3730a3; font-weight: bold; text-decoration: none; }
+
+.event-card {
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
